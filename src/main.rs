@@ -57,6 +57,7 @@ fn main() {
         if (*hand_hash.get(&0).unwrap() >= 3)
             || (*hand_hash.get(&0).unwrap() >= 2 && *hand_hash.get(&1).unwrap() >= 1)
             || (*hand_hash.get(&0).unwrap() >= 1 && *hand_hash.get(&1).unwrap() >= 2)
+            || (*hand_hash.get(&0).unwrap() >= 2 && *hand_hash.get(&2).unwrap() >= 1)
             || (*hand_hash.get(&0).unwrap() >= 1
                 && *hand_hash.get(&1).unwrap() >= 1
                 && *hand_hash.get(&2).unwrap() >= 1)
@@ -74,6 +75,7 @@ fn main() {
             if (*hand_hash.get(&0).unwrap() >= 3)
                 || (*hand_hash.get(&0).unwrap() >= 2 && *hand_hash.get(&1).unwrap() >= 1)
                 || (*hand_hash.get(&0).unwrap() >= 1 && *hand_hash.get(&1).unwrap() >= 2)
+                || (*hand_hash.get(&0).unwrap() >= 2 && *hand_hash.get(&2).unwrap() >= 1)
                 || (*hand_hash.get(&0).unwrap() >= 1
                     && *hand_hash.get(&1).unwrap() >= 1
                     && *hand_hash.get(&2).unwrap() >= 1)
