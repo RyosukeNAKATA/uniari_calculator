@@ -4,8 +4,8 @@ use std::collections::HashMap;
 fn main() {
     let mut deck_original: Vec<u32> = vec![];
 
-    let zero = 12;
-    let one = 4;
+    let zero = 8;
+    let one = 8;
     let one_two = 0;
     let two = 6;
     let three = 0;
@@ -47,6 +47,7 @@ fn main() {
     }
 
     let iterate_number = 1_000_000;
+    // let iterate_number = 1;
     let mut movable = 0;
 
     for _ in 0..iterate_number {
@@ -70,6 +71,7 @@ fn main() {
                 && *hand_hash.get(&2).unwrap() >= 1) // 012
             || (*hand_hash.get(&0).unwrap() >= 1 && *hand_hash.get(&11).unwrap() >= 1) // 01(2)
         {
+            println!("{:?}", hand_hash);
             movable += 1
         } else {
             let hand = deck.split_off(deck.len() - 7);
@@ -87,6 +89,7 @@ fn main() {
                     && *hand_hash.get(&2).unwrap() >= 1) // 012
                 || (*hand_hash.get(&0).unwrap() >= 1 && *hand_hash.get(&11).unwrap() >= 1) // 01(2)
             {
+                println!("{:?}", hand_hash);
                 movable += 1
             }
         }
