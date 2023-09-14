@@ -26,21 +26,21 @@ fn main() {
     let mut number_six = vec![6; six];
     let mut number_seven = vec![7; seven];
     let mut number_eight = vec![8; eight];
-    let mut number_other = vec![99; other];
+    let mut number_other = vec![13; other];
 
     deck_original.append(&mut number_zero);
     deck_original.append(&mut number_one);
-    deck_original.append(&mut number_one_two);
+    // deck_original.append(&mut number_one_two);
     deck_original.append(&mut number_two);
-    deck_original.append(&mut number_three);
-    deck_original.append(&mut number_four);
-    deck_original.append(&mut number_five);
-    deck_original.append(&mut number_six);
-    deck_original.append(&mut number_seven);
-    deck_original.append(&mut number_eight);
+    // deck_original.append(&mut number_three);
+    // deck_original.append(&mut number_four);
+    // deck_original.append(&mut number_five);
+    // deck_original.append(&mut number_six);
+    // deck_original.append(&mut number_seven);
+    // deck_original.append(&mut number_eight);
     deck_original.append(&mut number_other);
 
-    let energy_list: Vec<u32> = (0..11).collect();
+    let energy_list: Vec<u32> = (0..15).collect();
     let mut hand_hash_original: HashMap<u32, u32> = HashMap::new();
     for e in energy_list.iter() {
         hand_hash_original.entry(*e).or_insert(0);
