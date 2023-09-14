@@ -61,14 +61,14 @@ fn main() {
             *counter += 1;
         }
 
-        if (*hand_hash.get(&0).unwrap() >= 3)
-            || (*hand_hash.get(&0).unwrap() >= 2 && *hand_hash.get(&1).unwrap() >= 1)
-            || (*hand_hash.get(&0).unwrap() >= 1 && *hand_hash.get(&1).unwrap() >= 2)
-            || (*hand_hash.get(&0).unwrap() >= 2 && *hand_hash.get(&2).unwrap() >= 1)
-            || (*hand_hash.get(&0).unwrap() >= 1
+        if (*hand_hash.get(&0).unwrap() >= 3) // 000
+            || (*hand_hash.get(&0).unwrap() >= 2 && *hand_hash.get(&1).unwrap() >= 1) // 001
+            || (*hand_hash.get(&0).unwrap() >= 1 && *hand_hash.get(&1).unwrap() >= 2) // 011
+            || (*hand_hash.get(&0).unwrap() >= 2 && *hand_hash.get(&2).unwrap() >= 1) // 002
+            || (*hand_hash.get(&0).unwrap() >= 1 
                 && *hand_hash.get(&1).unwrap() >= 1
-                && *hand_hash.get(&2).unwrap() >= 1)
-            || (*hand_hash.get(&0).unwrap() >= 1 && *hand_hash.get(&11).unwrap() >= 1)
+                && *hand_hash.get(&2).unwrap() >= 1) // 012
+            || (*hand_hash.get(&0).unwrap() >= 1 && *hand_hash.get(&11).unwrap() >= 1) // 01(2)
         {
             movable += 1
         } else {
@@ -78,14 +78,14 @@ fn main() {
                 let counter = hand_hash.entry(*h).or_insert(0);
                 *counter += 1;
             }
-            if (*hand_hash.get(&0).unwrap() >= 3)
-                || (*hand_hash.get(&0).unwrap() >= 2 && *hand_hash.get(&1).unwrap() >= 1)
-                || (*hand_hash.get(&0).unwrap() >= 1 && *hand_hash.get(&1).unwrap() >= 2)
-                || (*hand_hash.get(&0).unwrap() >= 2 && *hand_hash.get(&2).unwrap() >= 1)
+            if (*hand_hash.get(&0).unwrap() >= 3) // 000
+                || (*hand_hash.get(&0).unwrap() >= 2 && *hand_hash.get(&1).unwrap() >= 1) // 001
+                || (*hand_hash.get(&0).unwrap() >= 1 && *hand_hash.get(&1).unwrap() >= 2) // 011
+                || (*hand_hash.get(&0).unwrap() >= 2 && *hand_hash.get(&2).unwrap() >= 1) // 002
                 || (*hand_hash.get(&0).unwrap() >= 1
                     && *hand_hash.get(&1).unwrap() >= 1
-                    && *hand_hash.get(&2).unwrap() >= 1)
-                || (*hand_hash.get(&0).unwrap() >= 1 && *hand_hash.get(&11).unwrap() >= 1)
+                    && *hand_hash.get(&2).unwrap() >= 1) // 012
+                || (*hand_hash.get(&0).unwrap() >= 1 && *hand_hash.get(&11).unwrap() >= 1) // 01(2)
             {
                 movable += 1
             }
