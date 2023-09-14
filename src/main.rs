@@ -71,7 +71,6 @@ fn main() {
                 && *hand_hash.get(&2).unwrap() >= 1) // 012
             || (*hand_hash.get(&0).unwrap() >= 1 && *hand_hash.get(&11).unwrap() >= 1) // 01(2)
         {
-            println!("{:?}", hand_hash);
             movable += 1
         } else {
             let hand = deck.split_off(deck.len() - 7);
@@ -89,7 +88,6 @@ fn main() {
                     && *hand_hash.get(&2).unwrap() >= 1) // 012
                 || (*hand_hash.get(&0).unwrap() >= 1 && *hand_hash.get(&11).unwrap() >= 1) // 01(2)
             {
-                println!("{:?}", hand_hash);
                 movable += 1
             }
         }
