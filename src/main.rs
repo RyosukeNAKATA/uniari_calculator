@@ -3,27 +3,42 @@ use std::collections::HashMap;
 
 fn main() {
     let mut deck_original: Vec<u32> = vec![];
-    let mut number_zero = vec![0; 12];
-    let mut number_one = vec![1; 4];
-    let mut number_two = vec![2; 6];
-    // let mut number_three = vec![3; 12];
-    // let mut number_four = vec![4; 8];
-    // let mut number_five = vec![5; 8];
-    // let mut number_six = vec![6; 0];
-    // let mut number_seven = vec![7; 0];
-    // let mut number_eight = vec![8; 0];
-    let mut other = vec![99; 22];
+
+    let zero = 12;
+    let one = 4;
+    let one_two = 0;
+    let two = 6;
+    let three = 0;
+    let four = 0;
+    let five = 0;
+    let six = 0;
+    let seven = 0;
+    let eight = 0;
+    let other = 50 - (zero + one + one_two + two + three + four);
+
+    let mut number_zero = vec![0; zero];
+    let mut number_one = vec![1; one];
+    let mut number_one_two = vec![11; one_two];
+    let mut number_two = vec![2; two];
+    let mut number_three = vec![3; three];
+    let mut number_four = vec![4; four];
+    let mut number_five = vec![5; five];
+    let mut number_six = vec![6; six];
+    let mut number_seven = vec![7; seven];
+    let mut number_eight = vec![8; eight];
+    let mut number_other = vec![99; other];
 
     deck_original.append(&mut number_zero);
     deck_original.append(&mut number_one);
+    deck_original.append(&mut number_one_two);
     deck_original.append(&mut number_two);
-    // deck_original.append(&mut number_three);
-    // deck_original.append(&mut number_four);
-    // deck_original.append(&mut number_five);
-    // deck_original.append(&mut number_six);
-    // deck_original.append(&mut number_seven);
-    // deck_original.append(&mut number_eight);
-    deck_original.append(&mut other);
+    deck_original.append(&mut number_three);
+    deck_original.append(&mut number_four);
+    deck_original.append(&mut number_five);
+    deck_original.append(&mut number_six);
+    deck_original.append(&mut number_seven);
+    deck_original.append(&mut number_eight);
+    deck_original.append(&mut number_other);
 
     let energy_list: Vec<u32> = (0..11).collect();
     let mut hand_hash_original: HashMap<u32, u32> = HashMap::new();
@@ -35,14 +50,9 @@ fn main() {
     let mut movable = 0;
 
     for _ in 0..iterate_number {
-        // println!("{}", "#".repeat(120));
-
         let mut deck = deck_original.clone();
         let mut rng = rand::thread_rng();
         deck.shuffle(&mut rng);
-
-        // println!("deck length: {:?}", deck.len());
-        // println!("deck: {:?}", deck);
 
         let hand = deck.split_off(deck.len() - 7);
         let mut hand_hash = hand_hash_original.clone();
@@ -51,9 +61,6 @@ fn main() {
             *counter += 1;
         }
 
-        // println!("{:?}", hand_hash);
-        // println!("{:?}", hand_hash.get(&0).unwrap());
-
         if (*hand_hash.get(&0).unwrap() >= 3)
             || (*hand_hash.get(&0).unwrap() >= 2 && *hand_hash.get(&1).unwrap() >= 1)
             || (*hand_hash.get(&0).unwrap() >= 1 && *hand_hash.get(&1).unwrap() >= 2)
@@ -61,8 +68,7 @@ fn main() {
             || (*hand_hash.get(&0).unwrap() >= 1
                 && *hand_hash.get(&1).unwrap() >= 1
                 && *hand_hash.get(&2).unwrap() >= 1)
-        // (*hand_hash.get(&0).unwrap() >= 2)
-        //     || (*hand_hash.get(&0).unwrap() >= 1 && *hand_hash.get(&1).unwrap() >= 1)
+            || (*hand_hash.get(&0).unwrap() >= 1 && *hand_hash.get(&11).unwrap() >= 1)
         {
             movable += 1
         } else {
@@ -79,16 +85,11 @@ fn main() {
                 || (*hand_hash.get(&0).unwrap() >= 1
                     && *hand_hash.get(&1).unwrap() >= 1
                     && *hand_hash.get(&2).unwrap() >= 1)
-            // (*hand_hash.get(&0).unwrap() >= 2)
-            //     || (*hand_hash.get(&0).unwrap() >= 1 && *hand_hash.get(&1).unwrap() >= 1)
+                || (*hand_hash.get(&0).unwrap() >= 1 && *hand_hash.get(&11).unwrap() >= 1)
             {
                 movable += 1
             }
         }
-
-        // println!("hand: {:?}", hand);
-        // println!("deck length: {:?}", deck.len());
-        // println!("deck: {:?}", deck);
     }
 
     println!("movable hand count: {}/{}", movable, iterate_number);
