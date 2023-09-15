@@ -4,10 +4,10 @@ use std::collections::HashMap;
 fn main() {
     let mut deck_original: Vec<u32> = vec![];
 
-    let zero = 8;
-    let one = 8;
+    let zero = 12;
+    let one = 4;
     let one_two = 0;
-    let two = 6;
+    let two = 8;
     let three = 0;
     let four = 0;
     let five = 0;
@@ -93,6 +93,8 @@ fn main() {
         }
     }
 
+    println!("");
+    println!("");
     println!("movable hand count: {}/{}", movable, iterate_number);
     println!(
         "movable hand probability: {}%",
